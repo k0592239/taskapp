@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0A5D7829586C37001F1A2A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0A5D7729586C37001F1A2A /* Task.swift */; };
 		4F27046B2957C1BF0077D020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27046A2957C1BF0077D020 /* AppDelegate.swift */; };
 		4F27046D2957C1BF0077D020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27046C2957C1BF0077D020 /* SceneDelegate.swift */; };
 		4F27046F2957C1BF0077D020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27046E2957C1BF0077D020 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		4C461605551B5D4CCAEF0402 /* Pods-taskapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskapp.debug.xcconfig"; path = "Target Support Files/Pods-taskapp/Pods-taskapp.debug.xcconfig"; sourceTree = "<group>"; };
+		4F0A5D7729586C37001F1A2A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4F2704672957C1BF0077D020 /* taskapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F27046A2957C1BF0077D020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F27046C2957C1BF0077D020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +52,6 @@
 				4C461605551B5D4CCAEF0402 /* Pods-taskapp.debug.xcconfig */,
 				FB67FB8BD798CF71FAF61D04 /* Pods-taskapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +84,7 @@
 				4F2704732957C1BF0077D020 /* Assets.xcassets */,
 				4F2704752957C1BF0077D020 /* LaunchScreen.storyboard */,
 				4F2704782957C1BF0077D020 /* Info.plist */,
+				4F0A5D7729586C37001F1A2A /* Task.swift */,
 			);
 			path = taskapp;
 			sourceTree = "<group>";
@@ -212,6 +214,7 @@
 			files = (
 				4F27046F2957C1BF0077D020 /* ViewController.swift in Sources */,
 				4F27046B2957C1BF0077D020 /* AppDelegate.swift in Sources */,
+				4F0A5D7829586C37001F1A2A /* Task.swift in Sources */,
 				4F27046D2957C1BF0077D020 /* SceneDelegate.swift in Sources */,
 				4F27047F2957D77D0077D020 /* InputViewController.swift in Sources */,
 			);

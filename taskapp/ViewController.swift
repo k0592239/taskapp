@@ -9,9 +9,10 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var whereTextField: UITextField!
     // Realmインスタンスを取得する
     let realm = try! Realm()
     // DB内のタスクが格納されるリスト
@@ -21,10 +22,29 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         tableView.fillerRowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+        whereTextField?.delegate = self
+
+        let imageView = UIImageView(frame: CGRect(x: 4.0, y: 0.0, width: 22.0, height: 22.0))
+        let image = UIImage(systemName: "magnifyingglass")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = UIColor.systemGray4
+
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 24, height: 22))
+        view.addSubview(imageView)
+        whereTextField?.leftView = view
+        whereTextField?.leftViewMode = UITextField.ViewMode.always
+
+        // Backボタンの変更
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "戻る"
+        )
+        
     }
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
 
         let dateString:String = formatter.string(from: task.date)
-        cell.detailTextLabel?.text = dateString
+        cell.detailTextLabel?.text = "\(dateString) \(task.category)"
 
         return cell
     }
@@ -99,5 +119,14 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
     }
 
+    @IBAction func searchReloadData(_ sender: UITextField) {
+        self.taskArray = self.realm.objects(Task.self)
+        if !sender.text!.isEmpty {
+            self.taskArray = self.taskArray.filter("category == %@", sender.text!)
+        }
+        self.taskArray = self.taskArray.sorted(byKeyPath: "date", ascending: true)
+        self.tableView.reloadData()
+    }
+    
 }
 

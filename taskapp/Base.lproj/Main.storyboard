@@ -170,8 +170,17 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YTV-NF-1y3">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="8Ox-Q9-Zh6"/>
-                            <barButtonItem systemItem="cancel" id="Mqg-xt-oUX"/>
+                            <barButtonItem title="保存" style="done" id="8Ox-Q9-Zh6">
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <connections>
+                                    <action selector="onSave:" destination="axy-vH-zNK" id="Xvc-FS-WsN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="キャンセル" id="Mqg-xt-oUX">
+                                <connections>
+                                    <action selector="onCancel:" destination="axy-vH-zNK" id="rVs-lK-T0t"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -215,6 +224,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

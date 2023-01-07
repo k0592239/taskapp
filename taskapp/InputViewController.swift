@@ -35,7 +35,9 @@ class InputViewController: UIViewController {
         datePicker.date = task.date
         categoryTextField.text = task.category
     }
-    override func viewWillDisappear(_ animated: Bool) {
+    // Saveボタン押下時（DB保存）
+    @IBAction func onSave(_ sender: Any) {
+        print("save")
         try! realm.write {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
@@ -43,6 +45,14 @@ class InputViewController: UIViewController {
             self.task.category = self.categoryTextField.text!
             self.realm.add(self.task, update: .modified)
         }
+        self.navigationController?.popViewController(animated: true)
+    }
+    // Cancelボタン押下時（画面遷移のみ）
+    @IBAction func onCancel(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    // 遷移元に戻る
+    override func viewWillDisappear(_ animated: Bool) {
         setNotification(task: task)
         super.viewWillDisappear(animated)
     }

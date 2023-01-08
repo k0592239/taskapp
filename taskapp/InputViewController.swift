@@ -45,6 +45,7 @@ class InputViewController: UIViewController {
             self.task.category = self.categoryTextField.text!
             self.realm.add(self.task, update: .modified)
         }
+        setNotification(task: task)
         self.navigationController?.popViewController(animated: true)
     }
     // Cancelボタン押下時（画面遷移のみ）
@@ -53,7 +54,6 @@ class InputViewController: UIViewController {
     }
     // 遷移元に戻る
     override func viewWillDisappear(_ animated: Bool) {
-        setNotification(task: task)
         super.viewWillDisappear(animated)
     }
     // タスクのローカル通知を登録する
